@@ -4,8 +4,8 @@ var __webpack_exports__ = {};
 
 ;// CONCATENATED MODULE: ./src/js/ChatApp.js
 class ChatApp {
-  constructor() {
-    this.ws = new WebSocket("ws://localhost:8080");
+  constructor(serverUrl = "ws://localhost:8080") {
+    this.ws = new WebSocket(serverUrl);
     this.nickname = null;
     this.init();
   }
@@ -150,7 +150,9 @@ class ChatApp {
 ;// CONCATENATED MODULE: ./src/js/app.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  const chatApp = new ChatApp();
+  // const serverUrl = "ws://localhost:8080";
+  const serverUrl = "wss://ahj-homeworks-8-1.onrender.com";
+  const chatApp = new ChatApp(serverUrl);
   chatApp.start();
 });
 ;// CONCATENATED MODULE: ./src/index.js
